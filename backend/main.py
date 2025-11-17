@@ -4,10 +4,14 @@ from strategies.strategy import Strategy
 app = FastAPI(title="AlgoBotD Backend")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
+@app.get("/")
+def home():
+    return {"status": "Backend is running 🎉", "service": "AlgoBotD"}
+
 @app.get("/health")
 def health():
     return {"ok": True}
-
+    
 @app.get("/products")
 def products():
     return [
