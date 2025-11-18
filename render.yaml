@@ -1,0 +1,15 @@
+# render.yaml - place at repository root
+services:
+  - type: web
+    name: AlgoBotD-backend
+    env: node
+    region: oregon
+    plan: free
+    repo: https://github.com/pdeep5450/AlgoBotD
+    branch: main
+    root: backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
